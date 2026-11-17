@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">LumenVoice</string>
+    <string name="subtitle_offline_badge">100% OFFLINE • ON-DEVICE VOICE &amp; TTS</string>
+    <string name="permission_write_settings_title">System Brightness Access Needed</string>
+    <string name="permission_write_settings_desc">Grant Modify System Settings permission so LumenVoice can disable adaptive brightness and write directly to Android\'s 0–255 system brightness register.</string>
+    <string name="btn_grant_write_settings">Grant Modify System Settings</string>
+    <string name="status_write_settings_granted">System Write Active • Manual Mode Enforced</string>
+    <string name="status_write_settings_window_only">Previewing on Window • Grant Settings Access for System-Wide Control</string>
+    <string name="label_brightness_percent">BRIGHTNESS LEVEL</string>
+    <string name="label_system_scale">ANDROID 0–255 SCALE</string>
+    <string name="label_brightness_mode">BRIGHTNESS MODE</string>
+    <string name="mode_manual">MANUAL (0)</string>
+    <string name="mode_adaptive">ADAPTIVE (1)</string>
+    <string name="slider_section_title">Precision Slider</string>
+    <string name="numeric_input_label">Exact % (0–100)</string>
+    <string name="btn_apply_numeric">Set</string>
+    <string name="presets_section_title">Quick Presets</string>
+    <string name="preset_25">25%</string>
+    <string name="preset_43">43%</string>
+    <string name="preset_75">75%</string>
+    <string name="preset_100">100%</string>
+    <string name="voice_section_title">On-Device Voice Control</string>
+    <string name="mic_button_tap_to_speak">Tap to Speak Command</string>
+    <string name="mic_button_listening">Listening… Speak Now</string>
+    <string name="mic_permission_required">Microphone permission is required for voice commands</string>
+    <string name="btn_grant_mic_permission">Allow Microphone Access</string>
+    <string name="voice_commands_cheatsheet_title">Supported Voice Phrases</string>
+    <string name="voice_hint_exact">\"43\" or \"Set brightness to 43 percent\" → Exact 0–100%</string>
+    <string name="voice_hint_increase">\"Brighter\", \"Increase\", or \"More\" → +15%</string>
+    <string name="voice_hint_decrease">\"Dimmer\", \"Darker\", \"Decrease\", or \"Less\" → -15%</string>
+    <string name="voice_hint_extremes">\"Max\" / \"Full\" → 100%  •  \"Minimum\" / \"Low\" → 10%</string>
+    <string name="tts_mute_toggle_desc">Toggle spoken confirmation</string>
+    <string name="refresh_system_state_desc">Sync current system brightness</string>
+    <string name="last_voice_command_label">LAST SPOKEN COMMAND</string>
+    <string name="error_invalid_number">Enter a whole number between 0 and 100</string>
+</resources>

@@ -1,0 +1,6 @@
+{
+  "name": "LumenVoice",
+  "description": "Minimal, 100% offline native Android screen brightness controller with on-device voice commands, custom presets, and speech confirmation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
