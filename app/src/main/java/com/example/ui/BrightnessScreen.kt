@@ -237,7 +237,7 @@ fun BrightnessScreen(
                     canWriteSettings = uiState.canWriteSettings
                 )
 
-                // Offline Voice Control Hub (Large Mic Button + Live Transcript + Spoken Confirmation)
+                // Offline Voice Control Hub (Extra-Large Mic Button + Live Transcript + Spoken Confirmation)
                 OfflineVoiceControlCard(
                     uiState = uiState,
                     onMicClick = {
@@ -504,7 +504,6 @@ private fun LumenTelemetryHeroCard(
         border = BorderStroke(1.dp, SlateBorder.copy(alpha = 0.7f))
     ) {
         Box(modifier = Modifier.fillMaxWidth()) {
-            // Custom generated abstract lightwave backdrop with dynamic brightness opacity
             Image(
                 painter = painterResource(id = R.drawable.img_lumen_backdrop),
                 contentDescription = null,
@@ -553,7 +552,6 @@ private fun LumenTelemetryHeroCard(
                             )
                             val arcSize = Size(diameter, diameter)
 
-                            // Track arc
                             drawArc(
                                 color = SlateSurfaceVariant,
                                 startAngle = 140f,
@@ -564,7 +562,6 @@ private fun LumenTelemetryHeroCard(
                                 style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
                             )
 
-                            // Active luminous arc
                             drawArc(
                                 brush = Brush.sweepGradient(
                                     colors = listOf(
@@ -752,24 +749,29 @@ private fun OfflineVoiceControlCard(
                 }
             }
 
-            // Large Microphone Button with Live Acoustic Pulse Rings
+            // Extra-Large Microphone Button & Big Icon with Live Acoustic Pulse Rings
             Box(
-                modifier = Modifier
-                    .size(132.dp),
+                modifier = Modifier.size(188.dp),
                 contentAlignment = Alignment.Center
             ) {
-                if (uiState.isListening) {
-                    val rmsBoost = (uiState.rmsDb / 12f).coerceIn(0f, 1f) * 0.25f
-                    Canvas(modifier = Modifier.fillMaxSize()) {
-                        val baseRadius = size.minDimension * 0.36f
+                Canvas(modifier = Modifier.fillMaxSize()) {
+                    val baseRadius = size.minDimension * 0.39f
+                    if (uiState.isListening) {
+                        val rmsBoost = (uiState.rmsDb / 12f).coerceIn(0f, 1f) * 0.25f
                         drawCircle(
-                            color = AcousticCyan.copy(alpha = 0.18f),
+                            color = AcousticCyan.copy(alpha = 0.20f),
                             radius = baseRadius * (pulseScale + rmsBoost)
                         )
                         drawCircle(
-                            color = SolarAmber.copy(alpha = 0.26f),
-                            radius = baseRadius * (1.05f + rmsBoost * 0.7f),
-                            style = Stroke(width = 3.dp.toPx())
+                            color = SolarAmber.copy(alpha = 0.32f),
+                            radius = baseRadius * (1.06f + rmsBoost * 0.7f),
+                            style = Stroke(width = 3.5.dp.toPx())
+                        )
+                    } else {
+                        drawCircle(
+                            color = SolarAmber.copy(alpha = 0.14f),
+                            radius = baseRadius * 1.12f,
+                            style = Stroke(width = 2.dp.toPx())
                         )
                     }
                 }
@@ -777,7 +779,7 @@ private fun OfflineVoiceControlCard(
                 Button(
                     onClick = onMicClick,
                     modifier = Modifier
-                        .size(92.dp)
+                        .size(140.dp)
                         .testTag("voice_mic_button")
                         .semantics {
                             contentDescription = if (uiState.isListening) {
@@ -793,14 +795,14 @@ private fun OfflineVoiceControlCard(
                         contentColor = if (uiState.isListening) Color.White else Color(0xFF1A1100)
                     ),
                     elevation = ButtonDefaults.buttonElevation(
-                        defaultElevation = 8.dp,
-                        pressedElevation = 2.dp
+                        defaultElevation = 10.dp,
+                        pressedElevation = 3.dp
                     )
                 ) {
                     Icon(
                         imageVector = if (uiState.isListening) Icons.Filled.Stop else Icons.Filled.Mic,
                         contentDescription = null,
-                        modifier = Modifier.size(40.dp)
+                        modifier = Modifier.size(72.dp)
                     )
                 }
             }
@@ -823,7 +825,6 @@ private fun OfflineVoiceControlCard(
                 textAlign = TextAlign.Center
             )
 
-            // If microphone permission is not yet granted, provide an explicit inline action chip too
             if (!uiState.hasRecordAudioPermission) {
                 OutlinedButton(
                     onClick = onRequestMicPermission,
@@ -922,7 +923,6 @@ private fun OfflineVoiceControlCard(
                 }
             }
 
-            // Voice error alert if speech recognition encountered an issue
             AnimatedVisibility(visible = uiState.voiceErrorMessage != null) {
                 uiState.voiceErrorMessage?.let { errorMsg ->
                     Surface(
@@ -977,7 +977,6 @@ private fun OfflineVoiceControlCard(
 
                 Spacer(modifier = Modifier.height(2.dp))
 
-                // Interactive voice phrase chips to test the local Kotlin parser & TTS directly
                 val sampleVoicePhrases = listOf(
                     "Set brightness to 43 percent" to "voice_chip_43",
                     "Brighter" to "voice_chip_brighter",
@@ -1011,7 +1010,7 @@ private fun OfflineVoiceControlCard(
                                     imageVector = Icons.Filled.Mic,
                                     contentDescription = null,
                                     tint = SolarAmberBright,
-                                    modifier = Modifier.size(14.dp)
+                                    modifier = Modifier.size(16.dp)
                                 )
                                 Text(
                                     text = "\"$phrase\"",

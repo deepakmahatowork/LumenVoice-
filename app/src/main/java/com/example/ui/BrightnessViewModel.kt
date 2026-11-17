@@ -322,14 +322,8 @@ class BrightnessViewModel(application: Application) : AndroidViewModel(applicati
 
     fun toggleTtsEnabled() {
         _uiState.update { current ->
-            val next = !current.isTtsEnabled
-            current.copy(isTtsEnabled = next)
+            current.copy(isTtsEnabled = !current.isTtsEnabled)
         }
-    }
-
-    fun togglePreferOfflineSpeech() {
-        val next = !_uiState.value.preferOfflineSpeech
-        voiceController.setPreferOfflineRecognition(next)
     }
 
     override fun onCleared() {
