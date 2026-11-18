@@ -1,6 +1,6 @@
 {
   "name": "LumenVoice",
-  "description": "Minimal, 100% offline native Android screen brightness controller with on-device voice commands, custom presets, and speech confirmation.",
+  "description": "100% offline native Android screen brightness controller built with Kotlin and Jetpack Compose. Uses on-device SpeechRecognizer, local Kotlin voice-command parsing, native TextToSpeech confirmation, and direct 0–255 system brightness control with zero internet or API keys required.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
